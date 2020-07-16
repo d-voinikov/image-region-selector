@@ -1,0 +1,43 @@
+<div class="center-column">
+  <mat-toolbar class="header" color="primary">
+    <span>My Application</span>
+  </mat-toolbar>
+
+  <div class="img">
+    <angular-cropper #angularCropper [cropperOptions]="config" [imageUrl]="currentFile" style="display: block; height: 100%;"></angular-cropper>
+  </div>
+
+  <div class="second-line">
+    <input
+      type="file"
+      name="file"
+      id="file"
+      class="inputfile"
+      (change)="onInputChange($event.target)"
+    />
+    <label for="file">
+      Upload image
+    </label>
+    <button mat-raised-button color="basic" (click)="resetImage()">
+      Reset image
+    </button>
+    <button mat-raised-button color="basic" (click)="addRegion()">
+      Add region
+    </button>
+  </div>
+  <div class="info">
+    <h2>Region Info</h2>
+    <div>
+      <span>X </span> <span>{{selectedRegion.x}}</span>
+    </div>
+    <div>
+      <span>Y </span> <span>{{selectedRegion.y}}</span>
+    </div>
+    <div>
+      <span>Width </span> <span>{{selectedRegion.width}}</span>
+    </div>
+    <div>
+      <span>Height </span> <span>{{selectedRegion.height}}</span>
+    </div>
+  </div>
+</div>
