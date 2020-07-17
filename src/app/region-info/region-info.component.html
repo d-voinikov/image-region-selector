@@ -1,0 +1,17 @@
+<h2>Region Info</h2>
+<ng-container *ngLet="selectedRegionInfo$ | async as selectedRegion">
+  <div>
+    <span>X </span> <span>{{ selectedRegion.x }}</span>
+  </div>
+  <div>
+    <span>Y </span> <span>{{ selectedRegion.y }}</span>
+  </div>
+  <div>
+    <span>Width </span> <span>{{ selectedRegion.width }}</span>
+  </div>
+  <div>
+    <span>Height </span> <span>{{ selectedRegion.height }}</span>
+  </div>
+</ng-container>
+
+

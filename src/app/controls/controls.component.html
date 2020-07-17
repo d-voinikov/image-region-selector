@@ -1,0 +1,49 @@
+<input
+  type="file"
+  name="file"
+  id="file"
+  class="file-input"
+  (change)="onInputChange($event.target)"
+/>
+<label for="file">
+  Upload image
+</label>
+<button
+  mat-raised-button
+  color="basic"
+  (click)="onAddRegion()"
+  *ngIf="!isSelectingRegion"
+>
+  Add region
+</button>
+
+<button
+  mat-raised-button
+  color="primary"
+  (click)="onCreateRegion()"
+  *ngIf="isSelectingRegion"
+>
+  Create region
+</button>
+<button
+  mat-raised-button
+  color="basic"
+  (click)="onCancelSelecting()"
+  *ngIf="isSelectingRegion"
+>
+  Cancel selection
+</button>
+
+<mat-form-field class="example-full-width" *ngIf="isSelectingRegion">
+  <input type="text"
+         placeholder="Pick one"
+         aria-label="Number"
+         matInput
+         [formControl]="myControl"
+         [matAutocomplete]="auto">
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    <mat-option *ngFor="let option of filteredRegionTypes | async" [value]="option.name">
+      {{option.name}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

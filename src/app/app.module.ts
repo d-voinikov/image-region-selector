@@ -7,14 +7,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { FileInputComponent } from './file-input/file-input.component';
 import { AngularCropperjsModule } from 'angular-cropperjs';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegionInfoComponent } from './region-info/region-info.component';
+import { LetDirective } from './let/let.directive';
+import { ControlsComponent } from './controls/controls.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatListModule } from '@angular/material/list';
+import { TypesComponent } from './types/types.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FileInputComponent
+    RegionInfoComponent,
+    LetDirective,
+    ControlsComponent,
+    TypesComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,9 +32,12 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     AngularCropperjsModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatListModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

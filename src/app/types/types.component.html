@@ -1,0 +1,8 @@
+<mat-selection-list #types (selectionChange)="typesSelectChanged()">
+  <mat-list-option *ngFor="let type of types$ | async" [value]="type.name" [selected]="true">
+    <div class="type-name">
+      <div class="type-color" [style.backgroundColor]="type.color"></div>
+      {{type.name}}
+    </div>
+  </mat-list-option>
+</mat-selection-list>
