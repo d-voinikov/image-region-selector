@@ -39,7 +39,7 @@
          placeholder="Pick one"
          aria-label="Number"
          matInput
-         [formControl]="myControl"
+         [formControl]="typeName"
          [matAutocomplete]="auto">
   <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
     <mat-option *ngFor="let option of filteredRegionTypes | async" [value]="option.name">

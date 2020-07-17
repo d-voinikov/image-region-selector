@@ -1,13 +1,6 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ViewChildren,
-  AfterViewInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RegionsService } from '../regions.service';
 import { Observable } from 'rxjs';
-import { MatSelectionList } from '@angular/material/list';
 
 @Component({
   selector: 'app-region-info',

@@ -1,15 +1,30 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { RegionInfoComponent } from './region-info/region-info.component';
+import { ControlsComponent } from './controls/controls.component';
+import { LetDirective } from './let/let.directive';
+import { TypesComponent } from './types/types.component';
+import { AngularCropperjsModule } from 'angular-cropperjs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        AngularCropperjsModule,
+        MatToolbarModule,
+        MatListModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        RegionInfoComponent,
+        ControlsComponent,
+        LetDirective,
+        TypesComponent
       ],
     }).compileComponents();
   }));
@@ -18,18 +33,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'vmg-test'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('vmg-test');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('vmg-test app is running!');
   });
 });

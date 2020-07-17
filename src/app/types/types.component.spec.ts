@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatListModule } from '@angular/material/list';
 
 import { TypesComponent } from './types.component';
 
@@ -8,9 +9,9 @@ describe('TypesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TypesComponent ]
-    })
-    .compileComponents();
+      declarations: [TypesComponent],
+      imports: [MatListModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

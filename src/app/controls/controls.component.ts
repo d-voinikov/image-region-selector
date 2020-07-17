@@ -14,17 +14,17 @@ export class ControlsComponent implements OnInit {
 
   @Output() fileUploaded = new EventEmitter<string | ArrayBuffer>();
   @Output() addRegion = new EventEmitter<void>();
-  @Output() createRegion = new EventEmitter<void>();
+  @Output() createRegion = new EventEmitter<string>();
   @Output() cancelSelecting = new EventEmitter<void>();
 
   regionType = '';
   filteredRegionTypes: Observable<{}[]>;
-  myControl = new FormControl();
+  typeName = new FormControl();
 
   constructor(private regionsService: RegionsService) {}
 
   ngOnInit(): void {
-    this.filteredRegionTypes = this.myControl.valueChanges.pipe(
+    this.filteredRegionTypes = this.typeName.valueChanges.pipe(
       startWith(''),
       combineLatest(this.regionsService.types$),
       map(([value, options]) => this.filter(value, options))
@@ -36,8 +36,8 @@ export class ControlsComponent implements OnInit {
   }
 
   onCreateRegion(): void {
-    this.createRegion.emit(this.myControl.value);
-    this.myControl.setValue('');
+    this.createRegion.emit(this.typeName.value);
+    this.typeName.setValue('');
   }
 
   onCancelSelecting(): void {
